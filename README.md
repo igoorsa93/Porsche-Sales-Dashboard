@@ -4,10 +4,8 @@
 
 Dashboard interativo de vendas com visual inspirado na identidade premium da Porsche.
 
-<img src="./assets/preview-dashboard.png" alt="Preview do Dashboard Porsche" width="900"/>
-
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0a4716a6-7316-4d97-9c17-2706ee69f307" />
 </div>
-
 ---
 
 ## 📌 Sobre o projeto
