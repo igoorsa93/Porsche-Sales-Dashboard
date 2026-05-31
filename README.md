@@ -103,10 +103,10 @@ O dashboard foi criado com uma proposta visual premium, usando uma paleta inspir
 ## ▶️ Como visualizar o projeto
 
 1. Baixe ou clone este repositório.
-2. Abra o arquivo abaixo no navegador:
+2. Site para extração dos fatos e modelos:
 
 ```bash
-dashboard_porsche_sales_canvas.html
+https://www.porsche.com/brazil/pt/models/
 ```
 
 3. Use os filtros do dashboard para analisar modelos, cidades, faturamento e formas de pagamento.
