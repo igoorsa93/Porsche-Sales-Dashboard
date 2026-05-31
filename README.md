@@ -132,9 +132,6 @@ porsche-sales-dashboard/
 │
 └── assets/
     └── preview-dashboard.png
-```
-![Uploading Captura de tela 2026-05-30 234537.png…]()
-
 ---
 
 ## 🚀 Aprendizados
