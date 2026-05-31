@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Porsche Sales Gallery Dashboard</title>
+<link rel="preconnect" href="https://images.porsche.com" crossorigin>
+<link rel="preconnect" href="https://a.storyblok.com" crossorigin>
+<link rel="dns-prefetch" href="https://images.porsche.com">
+<link rel="dns-prefetch" href="https://a.storyblok.com">
+<style>
+:root{--red:#c79b55;--gold:#c79b55;--black:#0b0b0b;--cream:#f4f0ea;--paper:#fbfaf8;--card:#fff;--line:#e7ded5;--muted:#71757d;--shadow:0 24px 70px rgba(0,0,0,.10)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#eee8df,#fbfaf8);font-family:Inter,Segoe UI,Arial,sans-serif;color:#111}.app{max-width:1520px;margin:auto;padding:28px}.hero{min-height:560px;border-radius:42px;background:radial-gradient(circle at 75% 46%,rgba(255,255,255,.12),transparent 28%),linear-gradient(115deg,#071018 0%,#101820 46%,#1b1e23 100%);position:relative;overflow:hidden;box-shadow:0 28px 80px rgba(0,0,0,.22);padding:62px 70px}.hero:before{content:"";position:absolute;right:230px;top:-140px;width:560px;height:820px;border-radius:50%;border-left:5px solid var(--gold);background:linear-gradient(90deg,rgba(255,255,255,.07),transparent 68%);transform:rotate(14deg);opacity:.9}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,10,16,.88) 0%,rgba(8,13,20,.78) 38%,rgba(8,13,20,.10) 64%,rgba(0,0,0,.28) 100%);z-index:1;pointer-events:none}.brand{position:relative;z-index:4;display:flex;align-items:center;width:620px;height:135px;overflow:visible}.brandLogo{display:block;width:560px;height:auto;max-height:135px;max-width:none;flex:0 0 auto;object-fit:contain;object-position:left center;filter:drop-shadow(0 16px 32px rgba(0,0,0,.55))}.brand:after{content:none}.heroText{position:relative;z-index:4;color:#fff;width:43%;margin-top:82px}.eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:6px;color:var(--gold);font-weight:900}.eyebrow:before{content:"";display:block;width:78px;height:4px;background:var(--gold);border-radius:999px;margin-bottom:20px}.hero h1{font-size:72px;line-height:.98;letter-spacing:-2.8px;margin:22px 0 24px;max-width:760px;text-transform:uppercase;text-shadow:0 8px 28px rgba(0,0,0,.75);color:#f7f4ef}.hero p{font-size:22px;line-height:1.55;color:#d8d0c4;margin:0;max-width:650px}.hero p strong{color:var(--gold)}.heroCar{position:absolute;right:-170px;bottom:8px;width:980px;z-index:3;filter:drop-shadow(0 34px 34px rgba(0,0,0,.86))}.heroCar img{width:100%;display:block;object-fit:contain}.heroCar img[src*=macan],.family img[src*=macan]{object-fit:contain}.badge{display:none}.filters{display:grid;grid-template-columns:1.35fr 1fr 1.15fr 1.25fr auto;gap:18px;margin:30px 0}.filters select{min-width:0}.filterGroup{display:flex;flex-direction:column;gap:8px}.filterGroup label{font-size:11px;text-transform:uppercase;color:#6f737a;font-weight:900;letter-spacing:.35px}.filters select,.filters button{height:52px;border-radius:18px;border:1px solid var(--line);background:#fff;padding:0 16px;font-weight:850;box-shadow:0 8px 24px rgba(0,0,0,.045);outline:0}.filters button{background:#111;color:#fff;border:0;cursor:pointer}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px}.kpi{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 14px 38px rgba(0,0,0,.055)}.kpi span{font-size:11px;text-transform:uppercase;color:#777;font-weight:900;letter-spacing:.4px}.kpi b{display:block;font-size:34px;margin-top:10px;letter-spacing:-1px}.kpi small{color:#777}.title{display:flex;align-items:end;justify-content:space-between;margin:22px 4px 14px}.title h2{font-size:24px;margin:0;letter-spacing:-.6px}.title p{margin:4px 0 0;color:#777}.families{display:block;margin-bottom:24px}.featuredModel{min-height:380px;background:linear-gradient(115deg,#fff 0%,#fff 48%,#f1ece6 48.2%,#fbf8f5 100%);border:1px solid var(--line);border-radius:36px;padding:34px;position:relative;overflow:hidden;box-shadow:0 18px 46px rgba(0,0,0,.065)}.featuredModel:after{content:"";position:absolute;right:-80px;top:-120px;width:520px;height:520px;border-radius:50%;background:rgba(199,155,85,.10)}.featuredInfo{position:relative;z-index:3;max-width:420px}.featuredInfo .label{font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--red);font-weight:900}.featuredInfo h3{font-size:62px;line-height:.95;margin:14px 0 12px;letter-spacing:-2.8px}.featuredInfo p{font-size:17px;color:#666;line-height:1.45;margin:0}.featuredCar{position:absolute;right:34px;top:34px;width:760px;height:220px;display:flex;align-items:center;justify-content:center;z-index:2}.featuredCar img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 24px 18px rgba(0,0,0,.22))}.featuredStats{position:absolute;left:34px;right:34px;bottom:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;z-index:4}.featuredStat{background:rgba(255,255,255,.78);backdrop-filter:blur(10px);border:1px solid rgba(0,0,0,.06);border-radius:20px;padding:17px}.featuredStat span{font-size:11px;text-transform:uppercase;color:#777;font-weight:900}.featuredStat b{display:block;font-size:25px;margin-top:8px;letter-spacing:-.6px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:30px}.rank{display:grid;gap:16px}.rankItem{display:grid;grid-template-columns:38px 1fr auto;gap:16px;align-items:center;background:#faf8f6;border:1px solid #eee;border-radius:20px;padding:16px}.rankNum{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#111;color:white;font-weight:900}.barTrack{height:8px;background:#eee;border-radius:99px;margin-top:7px;overflow:hidden}.barFill{height:100%;background:var(--red);border-radius:99px}.tableWrap{overflow:auto}.dataTable{width:100%;border-collapse:separate;border-spacing:0 8px;font-size:13px}.dataTable th{font-size:11px;text-transform:uppercase;color:#777;text-align:left;padding:0 14px 8px}.dataTable td{background:#fbfaf8;padding:14px;border-top:1px solid #eee;border-bottom:1px solid #eee;white-space:nowrap}.dataTable td:first-child{border-left:1px solid #eee;border-radius:14px 0 0 14px;font-weight:800}.dataTable td:last-child{border-right:1px solid #eee;border-radius:0 14px 14px 0}.panel{background:#fff;border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:0 16px 42px rgba(0,0,0,.055);min-height:360px}
+.panel:has(#insights){min-height:360px;padding:32px 34px}.panel.span12{min-height:auto}.panel h3{margin:0 0 16px;text-transform:uppercase;font-size:14px;letter-spacing:.25px}.panel h3:after{content:"";display:block;width:34px;height:3px;background:var(--red);border-radius:99px;margin-top:10px}.span3{grid-column:span 3}.span4{grid-column:span 4}.span5{grid-column:span 5}.span7{grid-column:span 7}.span12{grid-column:span 12}canvas{width:100%;height:315px}.chips{display:flex;gap:8px;flex-wrap:wrap;max-height:250px;overflow:auto}.chip{border:1px solid #e4ddd6;border-radius:999px;background:#fff;padding:9px 12px;font-size:12px;font-weight:850;cursor:pointer}.chip.active{background:#111;color:#fff;border-color:#111}.panel:has(#insights){min-height:430px!important;padding:34px 36px!important}.insights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:stretch;margin-top:18px}.insight{background:linear-gradient(135deg,#fbfaf8,#f3eee7);border:1px solid #eee4da;border-radius:24px;padding:24px 26px 24px 62px;position:relative;font-size:15.5px;line-height:1.72;min-height:128px;color:#34383d;box-shadow:0 12px 30px rgba(0,0,0,.045);display:flex;align-items:center}.insight:before{content:"✓";position:absolute;left:24px;top:50%;transform:translateY(-50%);width:25px;height:25px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900}.panel.span8 #insights{min-height:280px}@media(max-width:900px){.insights{grid-template-columns:1fr;gap:16px}.panel:has(#insights){min-height:auto!important;padding:28px!important}.insight{min-height:auto;padding:20px 22px 20px 56px}}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:11px;border-bottom:1px solid #eee;text-align:left}th{font-size:11px;text-transform:uppercase;color:#777}.footer{color:#777;font-size:12px;margin-top:16px}@media(max-width:1180px){.hero{min-height:560px}.heroText{width:70%}.heroCar{width:680px;right:-80px}.badge{top:auto;bottom:30px}.families{grid-template-columns:repeat(2,1fr)}.filters,.kpis{grid-template-columns:repeat(2,1fr)}.span3,.span4,.span5,.span7{grid-column:span 12}}@media(max-width:720px){.app{padding:12px}.hero{min-height:650px;border-radius:30px;padding:28px;background:linear-gradient(160deg,#151515 0%,#151515 55%,#faf7f4 55%)}.brand span{font-size:15px;letter-spacing:5px}.hero h1{font-size:47px}.heroText{width:100%}.heroCar{width:540px;right:-150px}.badge{left:22px;right:22px;width:auto}.families,.filters,.kpis{grid-template-columns:1fr}}
+
+/* HERO RECRIADO EM HTML/CSS - corrigido para não quebrar e não ficar pixelado */
+.porscheFinalHero{
+  min-height:620px !important;
+  border-radius:42px !important;
+  padding:56px 62px !important;
+  overflow:hidden !important;
+  position:relative !important;
+  background:
+    radial-gradient(circle at 72% 52%, rgba(226,198,150,.34), transparent 25%),
+    linear-gradient(110deg,#08111a 0%,#111a23 46%,#303033 100%) !important;
+  box-shadow:0 28px 80px rgba(0,0,0,.22) !important;
+}
+.porscheFinalHero:before{
+  content:"" !important;
+  position:absolute !important;
+  width:760px !important;
+  height:920px !important;
+  right:235px !important;
+  top:-210px !important;
+  border-radius:50% !important;
+  border-left:4px solid rgba(218,177,103,.95) !important;
+  border-right:1px solid rgba(255,255,255,.22) !important;
+  background:linear-gradient(100deg,rgba(255,255,255,.10),rgba(255,255,255,.02) 45%,transparent 70%) !important;
+  transform:rotate(12deg) !important;
+  z-index:1 !important;
+}
+.porscheFinalHero:after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  background:linear-gradient(90deg,rgba(5,10,16,.88) 0%,rgba(7,12,18,.75) 34%,rgba(7,12,18,.16) 58%,rgba(0,0,0,.22) 100%) !important;
+  z-index:2 !important;
+  pointer-events:none !important;
+}
+.finalBrand{position:relative;z-index:5;display:flex;align-items:center;gap:28px}
+.finalCrest{width:88px;height:104px;border-radius:18px 18px 24px 24px;background:linear-gradient(135deg,#f1cd73 0%,#d5a645 28%,#99141e 29%,#c20d22 55%,#111 56%,#333 100%);box-shadow:inset 0 0 0 2px #d8b15a,inset 0 0 0 6px rgba(0,0,0,.38),0 16px 34px rgba(0,0,0,.55);display:grid;place-items:start center;color:#111;font-size:11px;font-weight:900;letter-spacing:1px;padding-top:10px}
+.finalWord{color:#f5f5f2;font-size:40px;letter-spacing:10px;font-weight:500;text-shadow:0 8px 24px rgba(0,0,0,.75)}
+.finalContent{position:relative;z-index:5;margin-top:92px;width:46%;color:#fff}
+.finalLine{width:92px;height:4px;background:#d8b15a;border-radius:999px;margin-bottom:34px}
+.finalEyebrow{text-transform:uppercase;color:#d8b15a;font-size:13px;font-weight:900;letter-spacing:7px;margin-bottom:22px}
+.finalContent h1{margin:0 0 28px;font-size:72px;line-height:.96;letter-spacing:-2px;text-transform:uppercase;color:#f7f4ee;text-shadow:0 8px 28px rgba(0,0,0,.68)}
+.finalContent p{margin:0;font-size:22px;line-height:1.5;color:#eee6db;text-shadow:0 5px 20px rgba(0,0,0,.55)}
+.finalContent p strong{color:#d8b15a}
+.finalIcons{display:flex;gap:34px;margin-top:42px;color:#f5f1ea}
+.finalIcons div{display:grid;gap:8px;min-width:120px;border-right:1px solid rgba(255,255,255,.18);padding-right:28px}.finalIcons div:last-child{border-right:0}.finalIcons span{font-size:36px;color:#d8b15a;line-height:1}.finalIcons b{text-transform:uppercase;font-size:12px;letter-spacing:1.5px;line-height:1.35}
+.finalCar{position:absolute;z-index:3;right:-310px;bottom:2px;width:1220px;filter:drop-shadow(0 34px 34px rgba(0,0,0,.82));pointer-events:none}.finalCar img{width:100%;display:block;object-fit:contain}
+@media(max-width:1180px){.finalContent{width:62%}.finalCar{width:900px;right:-260px}.finalContent h1{font-size:58px}.finalIcons{display:none}}
+@media(max-width:720px){.porscheFinalHero{min-height:680px!important;padding:28px!important;border-radius:30px!important}.finalWord{font-size:24px;letter-spacing:7px}.finalCrest{width:62px;height:76px}.finalContent{width:100%;margin-top:70px}.finalContent h1{font-size:48px}.finalContent p{font-size:17px}.finalCar{width:620px;right:-260px;bottom:0}}
+
+/* HERO IMAGEM ANEXADA - substitui a apresentação antiga */
+.heroImageOnly{
+  width:100% !important;
+  min-height:0 !important;
+  aspect-ratio:1537/1023 !important;
+  padding:0 !important;
+  border-radius:42px !important;
+  overflow:hidden !important;
+  background:#f4efe6 !important;
+  box-shadow:0 28px 80px rgba(0,0,0,.16) !important;
+}
+.heroImageOnly:before,
+.heroImageOnly:after{display:none !important;content:none !important;}
+.heroExactImg{
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+}
+@media(max-width:720px){
+  .heroImageOnly{aspect-ratio:1537/1023 !important;border-radius:30px !important;}
+}
+
+/* HERO CLARO CORRIGIDO - substitui o topo quebrado e mantém carro fixo */
+.lightPorscheHero{
+  min-height:620px !important;
+  border-radius:42px !important;
+  padding:56px 62px !important;
+  overflow:hidden !important;
+  position:relative !important;
+  background:
+    radial-gradient(circle at 78% 44%, rgba(210,204,192,.42), transparent 34%),
+    linear-gradient(100deg,#f5f0e7 0%,#f1ece3 43%,#d8d5ce 100%) !important;
+  box-shadow:0 28px 80px rgba(0,0,0,.16) !important;
+}
+.lightPorscheHero:before,
+.lightPorscheHero:after{display:none !important;content:none !important;}
+.lightBrand{position:relative;z-index:5;display:flex;align-items:center;gap:28px}
+.lightCrest{width:88px;height:104px;border-radius:18px 18px 24px 24px;background:linear-gradient(135deg,#e6c56b 0%,#d5a643 28%,#8b1119 29%,#bd1021 55%,#111 56%,#2b2b2b 100%);box-shadow:inset 0 0 0 2px #b8944c,inset 0 0 0 6px rgba(0,0,0,.22),0 16px 34px rgba(0,0,0,.18);display:grid;place-items:start center;color:#111;font-size:11px;font-weight:900;letter-spacing:1px;padding-top:10px}
+.lightWord{color:#12191d;font-size:40px;letter-spacing:10px;font-weight:500;text-shadow:0 6px 18px rgba(255,255,255,.45)}
+.lightCopy{position:relative;z-index:5;margin-top:82px;width:45%;color:#111a1d}.lightDash{width:82px;height:4px;background:#c79b55;border-radius:999px;margin-bottom:34px}.lightDash.small{width:70px;margin:22px 0 24px}.lightEyebrow{text-transform:uppercase;color:#b48b4a;font-size:13px;font-weight:900;letter-spacing:7px;margin-bottom:22px}.lightCopy h1{margin:0;font-size:72px;line-height:.96;letter-spacing:-2px;text-transform:uppercase;color:#142024;text-shadow:0 8px 22px rgba(255,255,255,.62)}.lightCopy p{margin:0;font-size:21px;line-height:1.5;color:#4e5558}.lightCopy p strong{color:#b48b4a}.lightArc{position:absolute;z-index:1;border-radius:50%;pointer-events:none}.arcOne{width:720px;height:900px;left:520px;top:-170px;border-left:3px solid rgba(199,155,85,.55);transform:rotate(11deg);background:linear-gradient(100deg,rgba(0,0,0,.035),rgba(255,255,255,.18) 42%,transparent 70%)}.arcTwo{width:780px;height:950px;right:-50px;top:-250px;border-left:2px solid rgba(255,255,255,.7);transform:rotate(12deg)}.lightFixedCar{position:absolute;z-index:3;right:-300px;bottom:35px;width:1210px;filter:drop-shadow(0 28px 22px rgba(0,0,0,.25));pointer-events:none}.lightFixedCar img{width:100%;display:block;object-fit:contain}.lightPorscheHero + .filters{margin-top:30px}
+@media(max-width:1180px){.lightCopy{width:60%}.lightFixedCar{width:860px;right:-250px}.lightCopy h1{font-size:58px}}
+@media(max-width:720px){.lightPorscheHero{min-height:680px!important;padding:28px!important;border-radius:30px!important}.lightWord{font-size:24px;letter-spacing:7px}.lightCrest{width:62px;height:76px}.lightCopy{width:100%;margin-top:70px}.lightCopy h1{font-size:46px}.lightCopy p{font-size:17px}.lightFixedCar{width:620px;right:-250px;bottom:18px}}
+
+/* LOGO OFICIAL PORSCHE - carregamento pelo CDN oficial */
+.lightBrand.porscheLogoBox{
+  position:relative!important;
+  z-index:8!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  width:560px!important;
+  height:128px!important;
+  overflow:visible!important;
+  background:transparent!important;
+  gap:28px!important;
+}
+.porscheCrestPicture{
+  display:block!important;
+  width:76px!important;
+  min-width:76px!important;
+  height:auto!important;
+  line-height:0!important;
+  background:transparent!important;
+}
+.porscheCrestOfficial{
+  display:block!important;
+  width:76px!important;
+  min-width:76px!important;
+  height:auto!important;
+  max-height:100px!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  filter:none!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  image-rendering:auto!important;
+  transform:none!important;
+  backface-visibility:hidden!important;
+}
+.porscheCrestFallback{
+  display:grid!important;
+  place-items:center!important;
+  width:76px!important;
+  height:94px!important;
+  border:2px solid #c79b55!important;
+  border-radius:14px 14px 22px 22px!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  letter-spacing:1px!important;
+  color:#11191d!important;
+  background:linear-gradient(135deg,#d9b45f 0 45%,#b10f22 45% 70%,#151515 70%)!important;
+}
+.porscheWordmarkOfficial{
+  display:block!important;
+  width:355px!important;
+  height:auto!important;
+  object-fit:contain!important;
+  filter:none!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+.porscheLogoFinal,.lightCrest,.lightWord{display:none!important;}
+@media(max-width:720px){
+  .lightBrand.porscheLogoBox{width:310px!important;height:82px!important;gap:14px!important;}
+  .porscheCrestOfficial{width:58px!important;max-height:74px!important;}
+  .porscheWordmarkOfficial{width:220px!important;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <section class="hero lightPorscheHero" aria-label="Dashboard Executivo Porsche">
+    <div class="lightBrand porscheLogoBox" aria-label="Porsche oficial">
+      <img class="porscheCrestOfficial" src="https://cdn.ui.porsche.com/porsche-design-system/crest/porsche-crest.0d0cc89@1x.webp" alt="Porsche Crest" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<div class=&quot;porscheCrestFallback&quot;>PORSCHE</div>');">
+      <img class="porscheWordmarkOfficial" src="https://cdn.ui.porsche.com/ms-teams/porsche-wordmark-black.png" alt="Porsche">
+    </div>
+
+    <div class="lightCopy">
+      <div class="lightDash"></div>
+      <div class="lightEyebrow">Executive Business Intelligence</div>
+      <h1>Dashboard<br>Executivo<br>Porsche</h1>
+      <div class="lightDash small"></div>
+      <p>Análise estratégica de vendas, faturamento,<br>performance comercial e comportamento<br>dos modelos <strong>Porsche</strong>.</p>
+    </div>
+
+    <div class="lightArc arcOne"></div>
+    <div class="lightArc arcTwo"></div>
+
+    <div class="lightFixedCar">
+      <img src="https://images.porsche.com/f/285489813253582/5000x1485/41d2be3f2b/model-9921b2-2026-side-shot_06e74d820bdb4ff0a9521482138c2d3c.png/m/5000x1485/smart/filters%3Aformat%28png%29?dpl=dpl_FFCXzWQk3dMf7U5zNBWvpbzr2JKF" alt="Porsche fixo">
+    </div>
+  </section>
+
+  <section class="filters">
+    <div class="filterGroup"><label>Modelo do carro</label><select id="modelFilter"></select></div>
+    <div class="filterGroup"><label>Ano do modelo</label><select id="yearFilter"></select></div>
+    <div class="filterGroup"><label>Forma de pagamento</label><select id="payFilter"></select></div>
+    <div class="filterGroup"><label>Cidade da compra</label><select id="countryFilter"></select></div>
+    <button onclick="resetDash()">Limpar filtros</button>
+  </section>
+
+  <section class="kpis" id="kpis"></section>
+
+  <div class="title"><div><h2>Modelo Porsche em destaque</h2><p>Use o filtro de modelo para trocar o carro e os indicadores conforme a planilha.</p></div></div>
+  <section class="families" id="families"></section>
+
+  <section class="grid">
+    <div class="panel span4"><h3>Vendas por modelo</h3><canvas id="chartModelSales"></canvas></div>
+    <div class="panel span4"><h3>Vendas por cidade</h3><canvas id="chartCity"></canvas></div>
+    <div class="panel span4"><h3>Faturamento por modelo</h3><canvas id="chartModelRevenue"></canvas></div>
+
+    <div class="panel span4"><h3>Faturamento por ano</h3><canvas id="chartYearRevenue"></canvas></div>
+    <div class="panel span4"><h3>Forma de pagamento</h3><canvas id="chartPayment"></canvas></div>
+    <div class="panel span4"><h3>Ano do modelo</h3><canvas id="chartYearSales"></canvas></div>
+
+    <div class="panel span4"><h3>Ranking dos modelos</h3><div class="rank" id="ranking"></div></div>
+    <div class="panel span4"><h3>Ranking das cidades</h3><div class="rank" id="cityRanking"></div></div>
+
+    <div class="panel span4"><h3>Top 3 modelos mais vendidos</h3><div class="rank" id="top3Models"></div></div>
+
+    <div class="panel span12"><h3>Tabela detalhada</h3><div class="tableWrap"><table class="dataTable"><thead><tr><th>ID Venda</th><th>Data</th><th>Cliente</th><th>Modelo</th><th>Ano</th><th>Preço Venda</th><th>Quilometragem</th><th>Forma Pagamento</th><th>Cidade</th><th>Estado</th><th>País</th><th>Vendedor</th><th>Status Entrega</th></tr></thead><tbody id="details"></tbody></table></div></div>
+  </section>
+  <section class="grid">
+    <div class="panel span12"><h3>Insights automáticos</h3><div class="insights" id="insights"></div></div>
+  </section>
+  <p class="footer" id="footerInfo">Dados calculados automaticamente com base nos registros carregados no projeto.</p>
+</div>
+<script>
+const modelCarImages={
+  "718 Cayman":["https://images.porsche.com/f/285489813253582/5000x1490/6206cfb75a/model-982120-2024-side-shot_eb1e44cf80c04c96b1893f318f054daf.png"],
+  "718 Cayman S":["https://images.porsche.com/f/285489813253582/5000x1490/6206cfb75a/model-982120-2024-side-shot_eb1e44cf80c04c96b1893f318f054daf.png"],
+  "718 Cayman GT4 RS":["https://images.porsche.com/f/285489813253582/5000x1490/6206cfb75a/model-982120-2024-side-shot_eb1e44cf80c04c96b1893f318f054daf.png"],
+  "718 Boxster":["https://images.porsche.com/f/285489813253582/5000x1490/6206cfb75a/model-982120-2024-side-shot_eb1e44cf80c04c96b1893f318f054daf.png"],
+  "718 Boxster GTS":["https://images.porsche.com/f/285489813253582/5000x1490/6206cfb75a/model-982120-2024-side-shot_eb1e44cf80c04c96b1893f318f054daf.png"],
+  "718 Spyder RS":["https://images.porsche.com/f/285489813253582/5000x1490/6206cfb75a/model-982120-2024-side-shot_eb1e44cf80c04c96b1893f318f054daf.png"],
+
+  "911 Carrera":["https://images.porsche.com/f/285489813253582/5000x1485/41d2be3f2b/model-9921b2-2026-side-shot_06e74d820bdb4ff0a9521482138c2d3c.png"],
+  "911 Carrera S":["https://images.porsche.com/f/285489813253582/5000x1485/f69c557fe9/model-9921s2-2026-side-shot_3b98d78550a14b90bff7c9a5f546d7a2.png"],
+  "911 Carrera GTS":["https://images.porsche.com/f/285489813253582/5000x1485/90f88cee4b/model-992142-2026-side-shot_d8d81e49547244dca64ab6a8ed549be8.png"],
+  "911 Carrera Cabriolet":["https://images.porsche.com/f/285489813253582/5000x1485/41d2be3f2b/model-9921b2-2026-side-shot_06e74d820bdb4ff0a9521482138c2d3c.png"],
+  "911 Targa 4":["https://images.porsche.com/f/285489813253582/5000x1485/41d2be3f2b/model-9921b2-2026-side-shot_06e74d820bdb4ff0a9521482138c2d3c.png"],
+  "911 Targa 4S":["https://images.porsche.com/f/285489813253582/5000x1485/f69c557fe9/model-9921s2-2026-side-shot_3b98d78550a14b90bff7c9a5f546d7a2.png"],
+  "911 Turbo":["https://images.porsche.com/f/285489813253582/5000x1485/0c6bed536c/model-992452-side-shot.png"],
+  "911 Turbo S":["https://images.porsche.com/f/285489813253582/5000x1485/0c6bed536c/model-992452-side-shot.png"],
+  "911 GT3":["https://images.porsche.com/f/285489813253582/5000x1485/90f88cee4b/model-992142-2026-side-shot_d8d81e49547244dca64ab6a8ed549be8.png"],
+  "911 GT3 RS":["https://images.porsche.com/f/285489813253582/5000x1485/0c6bed536c/model-992452-side-shot.png"],
+  "911 Dakar":["https://images.porsche.com/f/285489813253582/5000x1485/41d2be3f2b/model-9921b2-2026-side-shot_06e74d820bdb4ff0a9521482138c2d3c.png"],
+
+  "Taycan":["https://a.storyblok.com/f/322327/2616x712/7cf2e4f3cf/ta24q3eix0010-taycan-turbo-s-side.png"],
+  "Taycan 4S":["https://a.storyblok.com/f/322327/2616x712/7cf2e4f3cf/ta24q3eix0010-taycan-turbo-s-side.png"],
+  "Taycan GTS":["https://a.storyblok.com/f/322327/2616x712/7cf2e4f3cf/ta24q3eix0010-taycan-turbo-s-side.png"],
+  "Taycan Turbo":["https://a.storyblok.com/f/322327/2616x712/7cf2e4f3cf/ta24q3eix0010-taycan-turbo-s-side.png"],
+  "Taycan Turbo S":["https://a.storyblok.com/f/322327/2616x712/7cf2e4f3cf/ta24q3eix0010-taycan-turbo-s-side.png"],
+  "Taycan Cross Turismo":["https://a.storyblok.com/f/322327/2616x712/7cf2e4f3cf/ta24q3eix0010-taycan-turbo-s-side.png"],
+
+  "Panamera":["https://images.porsche.com/f/285489813253582/5000x1393/9c05baa55d/model-yaabe1-side-shot_67b1bd090d944911aaddf494cf0c490e.png"],
+  "Panamera 4":["https://images.porsche.com/f/285489813253582/5000x1393/9c05baa55d/model-yaabe1-side-shot_67b1bd090d944911aaddf494cf0c490e.png"],
+  "Panamera 4S":["https://images.porsche.com/f/285489813253582/5000x1393/9c05baa55d/model-yaabe1-side-shot_67b1bd090d944911aaddf494cf0c490e.png"],
+  "Panamera Turbo":["https://images.porsche.com/f/285489813253582/5000x1393/9c05baa55d/model-yaabe1-side-shot_67b1bd090d944911aaddf494cf0c490e.png"],
+  "Panamera Turbo S":["https://images.porsche.com/f/285489813253582/5000x1393/9c05baa55d/model-yaabe1-side-shot_67b1bd090d944911aaddf494cf0c490e.png"],
+  "Panamera 4 E-Hybrid":["https://images.porsche.com/f/285489813253582/5000x1393/9c05baa55d/model-yaabe1-side-shot_67b1bd090d944911aaddf494cf0c490e.png"],
+
+  "Macan":["https://images.porsche.com/f/285489813253582/5000x1759/12429472bf/model-95bau1-2026-side-shot_89b9eaf02a9540d494e3398b12d105e2.png"],
+  "Macan T":["https://images.porsche.com/f/285489813253582/5000x1759/2c4a8f5bca/model-95ban1-2026-side-shot_4471cbaecf4645a6912198e95914335d.png"],
+  "Macan S":["https://images.porsche.com/f/285489813253582/5000x1759/6fdbad6fdc/model-95bbv1-2026-side-shot_92a196907ebe4d70a73c2151852d954c.png"],
+  "Macan GTS":["https://images.porsche.com/f/285489813253582/5000x1759/f909e0fc29/model-95bbw1-2026-side-shot_d3264936ec574bddbaa7b54dac9e898b.png"],
+  "Macan Electric":["https://a.storyblok.com/f/322327/9600x3040/3b4665ed32/macan-side.png"],
+
+  "Cayenne":["https://a.storyblok.com/f/322327/9600x3040/8bc90bfb71/cayenne-s-side.png"],
+  "Cayenne S":["https://a.storyblok.com/f/322327/9600x3040/8bc90bfb71/cayenne-s-side.png"],
+  "Cayenne Coupe":["https://a.storyblok.com/f/322327/9600x3040/8bc90bfb71/cayenne-s-side.png"],
+  "Cayenne E-Hybrid":["https://a.storyblok.com/f/322327/9600x3040/8bc90bfb71/cayenne-s-side.png"],
+  "Cayenne Turbo":["https://a.storyblok.com/f/322327/9600x3040/8bc90bfb71/cayenne-s-side.png"],
+  "Cayenne Turbo GT":["https://a.storyblok.com/f/322327/9600x3040/8bc90bfb71/cayenne-s-side.png"]
+};
+const familyFallbackImages={
+  "718":modelCarImages["718 Cayman"],"911":modelCarImages["911 Carrera"],"Taycan":modelCarImages["Taycan"],"Panamera":modelCarImages["Panamera"],"Macan":modelCarImages["Macan"],"Cayenne":modelCarImages["Cayenne"]
+};
+const carFallbackSvg=`data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#f4efe7"/><stop offset="1" stop-color="#d8d0c6"/></linearGradient></defs><rect width="1200" height="360" fill="none"/><path d="M135 235 C230 135 360 88 540 96 C710 104 795 132 910 210 C995 215 1065 234 1100 264 C1088 285 1015 296 893 298 L290 298 C202 296 142 277 135 235 Z" fill="url(#g)" stroke="#c79b55" stroke-width="8"/><circle cx="332" cy="294" r="45" fill="#111"/><circle cx="884" cy="294" r="45" fill="#111"/><text x="600" y="190" text-anchor="middle" font-family="Arial" font-size="42" letter-spacing="10" fill="#111">PORSCHE</text></svg>`)}`;
+function normalizeModelName(model){return String(model||'').trim().replace(new RegExp(' +','g'),' ');}
+function optimizedCarUrl(url){
+  if(!url || url.startsWith('data:')) return url;
+  if(url.includes('/m/')) return url;
+  if(url.includes('images.porsche.com') || url.includes('a.storyblok.com')) return url + '/m/1800x540/smart/filters%3Aformat%28webp%29';
+  return url;
+}
+function uniqueSources(list){return [...new Set((list||[]).filter(Boolean))];}
+function getCarSources(model,family){
+  const modelName=normalizeModelName(model);
+  const direct=modelCarImages[modelName]||[];
+  const familySources=familyFallbackImages[family]||familyFallbackImages['911']||[];
+  const originals=uniqueSources([...direct,...familySources]);
+  const optimized=originals.map(optimizedCarUrl);
+  return uniqueSources([...optimized,...originals,carFallbackSvg]);
+}
+const carImageCache={};
+function preloadCarImages(){
+  Object.keys(modelCarImages).forEach(model=>{
+    const family=['718','911','Taycan','Panamera','Macan','Cayenne'].find(x=>model.startsWith(x))||'911';
+    getCarSources(model,family).slice(0,2).forEach(src=>{
+      if(src&&!src.startsWith('data:')&&!carImageCache[src]){const img=new Image();img.decoding='async';img.loading='eager';img.src=src;carImageCache[src]=img;}
+    });
+  });
+}
+function carImgTag(family,model){
+  const srcs=getCarSources(model,family);
+  return `<img src="${srcs[0]}" data-srcs='${JSON.stringify(srcs)}' data-fallback="${carFallbackSvg}" loading="eager" decoding="async" fetchpriority="high" alt="Porsche ${model||family}" onerror="const list=JSON.parse(this.dataset.srcs||'[]');let i=Number(this.dataset.i||0)+1;if(i<list.length){this.dataset.i=i;this.src=list[i];}else{this.onerror=null;this.src=this.dataset.fallback;}">`;
+}
+const salesCsv=String.raw`id|date|client|model|year|price|mileage|pay|city|state|country|seller|status
+6|INVALID|Michael Adams|718 Cayman|2022|79500|9800|Credit Card|Boston|MA|United States|Kevin|Delivered
+7|2024-03-14|Sophia Miller|911 Turbo S|2024|235000|1200|Wire Transfer|Seattle|WA|United States|Amanda Scott|Delivered
+8|2024-04-18|Daniel-Jones|Cayenne Coupe|2023|112750|6400|Financing|Austin|TX|United States|Brian Hall|In Transit
+9|INVALID|Olivia Brown|Macan S|2021|68900|28|Cash|Denver|CO|United States|Jessica|Pending
+10|2024-05-22|Ethan Wilson|Taycan 4S|2024|121000|0|Bank Transfer|Los Angeles|CA|United States|Thomas King|Delivered
+11|2024-08-06|Ava Martinez|Panamera 4|2023|104500|14500|Credit Card|Miami|FL|United States|Lisa Ray|Cancelled
+12|2024-07-11|Noah Davis|911 Carrera S|2020|96300|41000|Lease|New York|NY|United States|Mark Evans|Delivered
+13|INVALID|Isabella Garcia|Cayenne E-Hybrid|2022|89750|11744|Wire Transfer|San Diego|CA|United States|Nancy Reed|Pending Approval
+14|2024-08-19|Liam Rodriguez|718 Boxster|2021|73500|22300|Debit Card|Chicago|IL|United States|George Bell|Shipped
+15|2024-09-02|Mia Hernandez|Macan GTS|2024|95000|3500|Financing|Phoenix|AZ|United States|Helen Brooks|In Transit
+16|2024-09-17|James Lopez|Taycan Turbo|2023|153200.5|11|ACH Payment|Dallas|TX|United States|Samuel Price|Delivered
+17|INVALID|Charlotte Young|911 GT3|2024|241000|750|Wire Transfer|Las Vegas|NV|United States|Peter Ford|Pending
+18|2024-05-11|Benjamin Allen|Panamera Turbo S|2022|132000|19250|Cash|San Jose|CA|United States|Angela Green|Delivered
+19|2024-12-12|Amelia King|Cayenne Turbo GT|2024|188000|2100|Crypto Payment|Houston|TX|United States|Victor Stone|Awaiting Delivery
+20|2024-12-25|Lucas Wright|911 Carrera Cabriolet|2023|127800|12000|Credit Card|Atlanta|GA|United States|Rachel Turner|Delivered
+21|2025-01-06|Harper Scott|Macan|2021|58900|33700|Bank Transfer|Orlando|FL|United States|Chris Moore|Pending
+22|INVALID|Henry Torres|718 Spyder RS|2024|164000|900|Financing|Portland|OR|United States|Laura Hill|In Transit
+23|2025-02-14|Evelyn Nguyen|Taycan Cross Turismo|2023|118500|7800|Wire Transfer|Charlotte|NC|United States|Martin Young|Delivered
+24|INVALID|Alexander Flores|Cayenne S|2022|91300|16000|Credit Card|Nashville|TN|United States|Diana Cooper|Pending
+25|2025-03-21|Abigail Carter|911 Targa 4S|2024|158750|2500|Lease|Minneapolis|MN|United States|Steve Gray|Delivered
+26|2025-03-28|Jack Mitchell|Panamera|2020|72000|49000|Bank Transfer|Philadelphia|PA|United States|Olivia Ross|Cancelled
+27|2025-04-09|Emily Perez|Macan Electric|2025|86500|0|Wire Transfer|San Antonio|TX|United States|Patrick Wood|Delivered
+28|INVALID|William Roberts|911 Dakar|2024|270000|1050|Cash|Salt Lake City|UT|United States|Karen Diaz|Awaiting Pickup
+29|2025-05-12|Sofia Turner|Taycan GTS|2023|139000|6250|Financing|Raleigh|NC|United States|Justin Cox|In Transit
+30|2025-06-18|Mason Phillips|Cayenne|2021|76800|38400|Credit Card|Detroit|MI|United States|Betty Ward|Delivered
+31|INVALID|Ella Campbell|718 Cayman GT4 RS|2024|173600|400|Wire Transfer|Columbus|OH|United States|Gary Reed|Pending
+32|2025-07-07|Logan Parker|911 Carrera GTS|2022|119900|13600|Cash|Indianapolis|IN|United States|Maria Foster|Delivered
+33|2025-07-22|Grace Evans|Panamera 4 E-Hybrid|2023|109250|8900|Lease|Fort Worth|TX|United States|Harold Bennett|In Transit
+34|2025-08-14|Jacob Edwards|Macan T|2022|82000|21750|Wire Transfer|Jacksonville|FL|United States|Teresa Cook|Delivered
+35|2025-09-01|Victoria Collins|Taycan Turbo S|2025|214000|0|Crypto Payment|San Diego|CA|United States|Frank Morgan|Pending Review
+36|INVALID|Andrew Simmons|911 Carrera|2024|124500|4800|Credit Card|Tampa|FL|United States|Natalie|Delivered
+37|2025-09-18|Chloe Bennett|Cayenne S|2023|98200|12200|Bank Transfer|Sacramento|CA|United States|Eric Woods|Pending
+38|2025-10-04|Ryan-Cooper|Macan|2022|67500|24100|Financing|Cleveland|OH|United States|Patricia Fox|Delivered
+39|2025-10-12|Hannah Reed|Taycan|2025|116900|0|Wire Transfer|Milwaukee|WI|United States|Alan Price|In Transit
+40|2025-10-29|Dylan Parker|Panamera 4S|2024|112000|10|Cash|Kansas City|MO|United States|Sandra Hill|Delivered
+41|2025-02-11|Lily Coleman|718 Boxster|2021|74000|31000|Debit Card|Omaha|NE|United States|Victor Lee|Cancelled
+42|2025-11-16|Nathan Hughes|911 Turbo|2024|198300|2400|Wire Transfer|Albuquerque|NM|United States|Monica|Awaiting Delivery
+43|INVALID|Zoe Foster|Cayenne Coupe|2023|103750|6773|Wire Transfer|Tucson|AZ|United States|Gregory Adams|Pending Approval
+44|INVALID|Caleb Ward|Macan GTS|2024|93600|5800|Financing|Fresno|CA|United States|Laura West|Shipped
+45|2025-12-07|Stella Brooks|Taycan 4S|2025|129000|0|ACH Payment|Virginia Beach|VA|United States|Henry King|In Transit
+46|2025-12-22|Owen Bryant|Panamera Turbo|2022|136000|18400|Credit Card|Colorado Springs|CO|United States|Amber Clark|Delivered
+47|INVALID|Nora Simmons|911 GT3 RS|2024|286500|700|Wire Transfer|Arlington|TX|United States|Peter Lane|Pending
+48|2026-01-08|Isaac Butler|Cayenne E-Hybrid|2023|92800|15000|Lease|Bakersfield|CA|United States|Grace Morris|Delivered
+49|2026-01-15|Leah Henderson|Macan T|2022|72400|19750|Cash|Mesa|AZ|United States|Kyle Perry|Awaiting Pickup
+50|2026-01-28|Christian Bailey|Taycan Turbo|2025|158500|3200|Crypto Payment|Atlanta|GA|United States|Megan Reed|Delivered
+51|2026-02-03|Audrey Russell|718 Cayman|2021|69900|27600|Bank Transfer|Long Beach|CA|United States|Carl Simmons|Pending
+52|INVALID|Hunter Griffin|911 Targa 4|2024|141250|2100|Financing|Oakland|CA|United States|Linda Cole|In Transit
+53|2026-02-19|Scarlett Diaz|Panamera|2020|71500|52000|Wire Transfer|Tulsa|OK|United States|Martin Brooks|Delivered
+54|2026-02-25|Eli Jenkins|Cayenne Turbo|2023|146800|11300|Credit Card|Wichita|KS|United States|Diana Long|Pending
+55|2026-03-01|Madison Powell|Macan Electric|2025|89700|0|Lease|New Orleans|LA|United States|Steve Ross|Delivered
+56|2026-03-14|Adrian Sanders|911 Carrera S|2022|104600|15900|Bank Transfer|Honolulu|HI|United States|Olivia Cruz|Cancelled
+57|INVALID|Penelope Barnes|Taycan GTS|2024|142000|6600|Wire Transfer|Anaheim|CA|United States|Patrick Wood|Delivered
+58|2026-04-08|Nolan Fisher|Cayenne|2021|78400|40250|Cash|Henderson|NV|United States|Karen Stone|Awaiting Review
+59|INVALID|Layla Marshall|718 Spyder RS|2025|169000|850|Financing|Lexington|KY|United States|Justin Fox|In Transit
+60|2026-04-21|Gabriel Owens|911 Dakar|2024|268900|1400|Credit Card|Riverside|CA|United States|Betty James|Delivered
+61|2026-04-29|Victoria Hart|Panamera 4|2023|101300|12700|Wire Transfer|Corpus Christi|TX|United States|Gary Price|Pending
+62|2026-05-05|Julian Stone|Macan S|2021|66750|29800|Cash|St. Louis|MO|United States|Maria Green|Delivered
+63|2026-05-14|Brooklyn Webb|Taycan Cross Turismo|2024|127900|7500|Lease|Pittsburgh|PA|United States|Harold Young|In Transit
+64|2026-05-23|Aaron Kim|Cayenne Turbo GT|2025|200000|1950|Wire Transfer|Cincinnati|OH|United States|Teresa Ward|Delivered
+65|2026-06-02|Claire Watson|911 Carrera Cabriolet|2023|132000|8800|Crypto Payment|Anchorage|AK|United States|Frank Reed|Pending Review
+66|2026-06-15|Sebastian Brooks|718 Cayman GT4 RS|2024|176400|600|Credit Card|Plano|TX|United States|Angela Moore|Delivered
+67|INVALID|Bella Ramirez|Panamera 4 E-Hybrid|2022|108500|16200|Bank Transfer|Newark|NJ|United States|Rachel West|Cancelled
+68|2026-07-07|Miles Peterson|Macan|2021|59000|36000|Financing|Greensboro|NC|United States|Thomas Fox|Awaiting Delivery
+69|2026-07-20|Skylar Rogers|Taycan Turbo S|2025|218000|0|Wire Transfer|Lincoln|NE|United States|Lisa Dunn|Pending
+70|INVALID|Dominic Kelly|Cayenne S|2024|99950|5300|Debit Card|Jersey City|NJ|United States|Brian Allen|Delivered
+71|2026-04-08|Lucy Howard|911 Carrera GTS|2024|121750|5872|Credit Card|Chandler|AZ|United States|George Hall|Delivered
+72|2026-08-18|Everett Cox|718 Boxster GTS|2023|91500|13300|Lease|Reno|NV|United States|Helen King|Shipped
+73|2026-08-31|Maya Rivera|Panamera Turbo S|2022|134000|20100|Wire Transfer|Buffalo|NY|United States|Samuel Price|In Transit
+74|2026-09-09|Connor Ward|Macan GTS|2024|96800|0|ACH Payment|Durham|NC|United States|Peter Ford|Delivered
+75|2026-09-17|Eliana Bell|Taycan 4S|2025|131600|2900|Wire Transfer|Laredo|TX|United States|Angela Green|Pending Approval
+76|2026-09-28|Cameron Murphy|Cayenne E-Hybrid|2023|94300|13100|Cash|Madison|WI|United States|Victor Stone|Delivered
+77|2026-10-06|Ariana Cook|911 Turbo S|2025|242000|1100|Crypto Payment|Lubbock|TX|United States|Rachel Turner|Awaiting Pickup
+78|2026-10-16|Wesley Morgan|718 Cayman S|2022|82750|22500|Credit Card|Toledo|OH|United States|Chris Moore|Cancelled
+79|2026-10-29|Naomi Peterson|Macan Electric|2026|91300|0|Wire Transfer|Irvine|CA|United States|Laura Hill|Delivered
+80|2026-11-03|Jason Perry|Panamera|2021|79900|44800|Financing|Garland|TX|United States|Martin Young|Pending
+81|INVALID|Riley Flores|Cayenne Coupe|2024|111000|6700|Bank Transfer|Irving|TX|United States|Diana Cooper|In Transit
+82|2026-12-11|Hazel Long|911 Targa 4S|2023|156500|4200|Cash|Chesapeake|VA|United States|Steve Gray|Delivered
+83|2026-12-24|Easton Bailey|Taycan|2025|119900|1250|Lease|Scottsdale|AZ|United States|Olivia Ross|Pending
+84|INVALID|Aurora Cooper|Macan T|2022|73200|18600|Wire Transfer|Norfolk|VA|United States|Patrick Wood|Delivered
+85|2026-12-28|Colton Richardson|911 GT3|2024|224000|3000|Wire Transfer|Boise|ID|United States|Karen Diaz|Awaiting Delivery
+86|2027-01-15|Mason Stewart|911 Carrera|2024|126900|7200|Credit Card|Orlando|FL|United States|Kevin Brown|Delivered
+87|2027-01-29|Harper Reed|Cayenne|2023|84500|21400|Bank Transfer|San Jose|CA|United States|Amanda Lee|Pending
+88|2027-02-11|Tyler-Morris|Macan S|2022|69800|26300|Financing|Tampa|FL|United States|Brian Hall|Delivered
+89|INVALID|Natalie Brooks|Taycan 4S|2025|132700|0|Wire Transfer|Denver|CO|United States|Jessica White|In Transit
+90|2027-03-05|Brandon Parker|Panamera|2021|81000|42|Cash|Austin|TX|United States|Thomas King|Delivered
+91|2027-03-18|Lauren Foster|718 Cayman|2023|78900|17500|Debit Card|Seattle|WA|United States|Victor Lee|Cancelled
+92|2027-04-02|Adam Hughes|911 Turbo S|2026|249300|900|Wire Transfer|Boston|MA|United States|Monica Green|Awaiting Delivery
+93|INVALID|Julia Coleman|Cayenne Coupe|2024|108750|5530|Wire Transfer|Phoenix|AZ|United States|Gregory Adams|Pending Approval
+94|INVALID|Caleb Simmons|Macan Electric|2026|92600|0|Financing|Chicago|IL|United States|Laura West|Shipped
+95|2027-05-12|Ariana Price|Taycan Turbo|2025|164000|0|ACH Payment|Dallas|TX|United States|Henry King|In Transit
+96|2027-05-27|Owen Rivera|Panamera 4S|2024|119000|13400|Credit Card|San Francisco|CA|United States|Amber Clark|Delivered
+97|INVALID|Nora Bennett|911 GT3|2026|232500|1700|Wire Transfer|Las Vegas|NV|United States|Peter Lane|Pending
+98|2027-06-18|Isaac Turner|Cayenne E-Hybrid|2023|96800|14000|Lease|Charlotte|NC|United States|Grace Morris|Delivered
+99|2027-07-03|Leah Scott|Macan T|2022|74400|20750|Cash|Mesa|AZ|United States|Kyle Perry|Awaiting Pickup
+100|2027-07-22|Christian Bailey|Taycan GTS|2025|148500|5200|Crypto Payment|Atlanta|GA|United States|Megan Reed|Delivered
+101|2027-08-08|Audrey Russell|718 Boxster|2021|71900|29600|Bank Transfer|Long Beach|CA|United States|Carl Simmons|Pending
+102|INVALID|Hunter Griffin|911 Targa 4|2024|143250|3100|Financing|Oakland|CA|United States|Linda Cole|In Transit
+103|2027-09-19|Scarlett Diaz|Panamera Turbo|2020|137500|48000|Wire Transfer|Tulsa|OK|United States|Martin Brooks|Delivered
+104|2027-09-25|Eli Jenkins|Cayenne Turbo GT|2025|204800|3300|Credit Card|Wichita|KS|United States|Diana Long|Pending
+105|2027-10-01|Madison Powell|911 Dakar|2024|271700|1050|Lease|New Orleans|LA|United States|Steve Ross|Delivered
+`;
+const parseSalesCsv=csv=>csv.trim().split(String.fromCharCode(10)).slice(1).map(line=>{const p=line.split('|');const model=p[3]||'Não informado';const family=['718','911','Taycan','Panamera','Macan','Cayenne'].find(x=>model.startsWith(x))||model.split(' ')[0];return {id:+p[0],date:p[1]||'INVALID',client:p[2]||'Não informado',model,family,year:+p[4],price:+p[5],mileage:+p[6],pay:p[7]||'Não informado',city:p[8]||'Não informado',state:p[9]||'Não informado',country:p[10]||'Não informado',seller:p[11]||'Não informado',status:p[12]||'Não informado'};});
+const salesRows=parseSalesCsv(salesCsv);
+let activeModel='Todos',country='Todos',pay='Todos',year='Todos';
+const $=id=>document.getElementById(id);
+const money=v=>Number(v||0).toLocaleString('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2});
+const EXPECTED_TOTAL_ROWS=100;
+const EXPECTED_TOTAL_REVENUE=12827800.50;
+const dateBR=v=>v&&v!=='INVALID'?new Date(v+'T00:00:00').toLocaleDateString('pt-BR'):v;
+function rows(){return salesRows.filter(d=>(activeModel==='Todos'||d.model===activeModel)&&(country==='Todos'||d.city===country)&&(pay==='Todos'||d.pay===pay)&&(year==='Todos'||String(d.year)===String(year)));}
+function fill(){
+  const models=[...new Set(salesRows.map(d=>d.model))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+  const years=[...new Set(salesRows.map(d=>d.year))].sort((a,b)=>a-b);
+  const payments=[...new Set(salesRows.map(d=>d.pay))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+  const cities=[...new Set(salesRows.map(d=>d.city))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+  modelFilter.innerHTML=['Todos os modelos',...models].map((x,i)=>`<option value="${i===0?'Todos':x}">${x}</option>`).join('');
+  yearFilter.innerHTML=['Todos',...years].map(x=>`<option>${x}</option>`).join('');
+  payFilter.innerHTML=['Todos',...payments].map(x=>`<option>${x}</option>`).join('');
+  countryFilter.innerHTML=['Todos',...cities].map(x=>`<option>${x}</option>`).join('');
+}
+function resetDash(){activeModel=country=pay=year='Todos';modelFilter.value=countryFilter.value=payFilter.value=yearFilter.value='Todos';update();}
+function bar(id,items,h=false,m=false){const c=$(id),ctx=c.getContext('2d'),w=c.width=Math.max(c.offsetWidth*2,320),hh=c.height=520;ctx.clearRect(0,0,w,hh);const arr=items.filter(x=>x[1]>0).slice(0,8);ctx.font='20px Arial';if(!arr.length){ctx.fillStyle='#777';ctx.fillText('Sem dados para o filtro atual',32,70);return}const max=Math.max(...arr.map(x=>x[1]));ctx.strokeStyle='#eee';ctx.lineWidth=1;for(let i=0;i<5;i++){const y=40+i*(hh-110)/4;ctx.beginPath();ctx.moveTo(28,y);ctx.lineTo(w-24,y);ctx.stroke()}arr.forEach((it,i)=>{if(h){let y=42+i*58,bw=(w-210)*(it[1]/max);ctx.fillStyle='#c79b55';ctx.fillRect(150,y,bw,34);ctx.fillStyle='#111';ctx.fillText(String(it[0]).slice(0,18),8,y+24);ctx.fillText(m?money(it[1]):it[1],Math.min(160+bw,w-155),y+24)}else{let step=(w-80)/arr.length,bw=Math.min(82,step-20),x=42+i*step,bh=(hh-120)*(it[1]/max);ctx.fillStyle='#c79b55';ctx.fillRect(x,hh-58-bh,bw,bh);ctx.fillStyle='#111';ctx.fillText(String(it[0]).slice(0,10),x,hh-20);ctx.fillText(m?money(it[1]):Math.round(it[1]),x-8,hh-70-bh)}})}
+function sumBy(rows,key,valueKey,sortMode='desc'){
+  const map={};
+  rows.forEach(d=>{map[d[key]]=(map[d[key]]||0)+(valueKey?d[valueKey]:1)});
+  const entries=Object.entries(map);
+  if(sortMode==='year') return entries.sort((a,b)=>Number(a[0])-Number(b[0]));
+  return entries.sort((a,b)=>b[1]-a[1]);
+}
+function groupModels(rows){const map={};rows.forEach(d=>{if(!map[d.model])map[d.model]={model:d.model,family:d.family,sales:0,revenue:0,city:d.city,pay:d.pay,year:d.year};map[d.model].sales++;map[d.model].revenue+=d.price;});return Object.values(map).map(d=>({...d,ticket:d.revenue/(d.sales||1)})).sort((a,b)=>b.sales-a.sales);}
+function leadCity(rows){return sumBy(rows,'city')[0]?.[0]||'-';}
+function update(){const r=rows(),rev=r.reduce((s,d)=>s+d.price,0),sales=r.length,groups=groupModels(r),display=activeModel==='Todos'?(salesRows[0]||{family:'911',model:'911',city:'-',pay:'-',year:'-',price:0}):(r[0]||salesRows.find(d=>d.model===activeModel)||salesRows[0]),selectedFamily=display.family||'911';kpis.innerHTML=[['Total de vendas',sales,'Linhas filtradas da planilha'],['Faturamento',money(rev),'Soma do preço de venda'],['Ticket médio',money(rev/(sales||1)),'Faturamento / vendas'],['Cidade líder',leadCity(r),'Maior volume']].map(x=>`<div class="kpi"><span>${x[0]}</span><b>${x[1]}</b><small>${x[2]}</small></div>`).join('');families.innerHTML=`<div class="featuredModel"><div class="featuredInfo"><div class="label">Modelo da planilha</div><h3>${activeModel==='Todos'?selectedFamily:activeModel}</h3><p>${activeModel==='Todos'?'Escolha um modelo no filtro para trocar automaticamente a foto do Porsche e atualizar os indicadores.':`Modelo ${activeModel}, família ${display.family}, ano ${display.year}.`}</p></div><div class="featuredCar">${carImgTag(selectedFamily,activeModel==='Todos'?selectedFamily:activeModel)}</div><div class="featuredStats"><div class="featuredStat"><span>Vendas</span><b>${sales}</b></div><div class="featuredStat"><span>Faturamento</span><b>${money(rev)}</b></div><div class="featuredStat"><span>Cidade da compra</span><b>${leadCity(r)}</b></div><div class="featuredStat"><span>Pagamento</span><b>${sumBy(r,'pay')[0]?.[0]||'-'}</b></div></div></div>`;bar('chartModelSales',sumBy(r,'model'),true,false);bar('chartCity',sumBy(r,'city'),true,false);bar('chartModelRevenue',sumBy(r,'model','price'),true,true);bar('chartYearRevenue',sumBy(r,'year','price','year'),false,true);bar('chartPayment',sumBy(r,'pay'),true,false);bar('chartYearSales',sumBy(r,'year',null,'year'),false,false);const topRanked=groups.slice(0,5),top3=groups.slice(0,3),maxRank=topRanked[0]?.sales||1;ranking.innerHTML=topRanked.map((d,i)=>`<div class="rankItem"><div class="rankNum">${i+1}</div><div><b>${d.model}</b><small>${d.family} • ${money(d.revenue)}</small><div class="barTrack"><div class="barFill" style="width:${(d.sales/maxRank)*100}%"></div></div></div><b>${d.sales}</b></div>`).join('')||'<div class="insight">Sem dados para o filtro atual.</div>';const citiesRank=sumBy(r,'city').slice(0,5),maxCity=citiesRank[0]?.[1]||1;cityRanking.innerHTML=citiesRank.map((d,i)=>`<div class="rankItem"><div class="rankNum">${i+1}</div><div><b>${d[0]}</b><small>Vendas por cidade</small><div class="barTrack"><div class="barFill" style="width:${(d[1]/maxCity)*100}%"></div></div></div><b>${d[1]}</b></div>`).join('')||'<div class="insight">Sem dados para o filtro atual.</div>';top3Models.innerHTML=top3.map((d,i)=>`<div class="rankItem"><div class="rankNum">${i+1}</div><div><b>${d.model}</b><small>${d.sales} vendas • ${money(d.revenue)}</small><div class="barTrack"><div class="barFill" style="width:${(d.sales/maxRank)*100}%"></div></div></div><b>${d.family}</b></div>`).join('')||'<div class="insight">Sem dados para o filtro atual.</div>';details.innerHTML=r.map(d=>`<tr><td>${d.id}</td><td>${dateBR(d.date)}</td><td>${d.client}</td><td>${d.model}</td><td>${d.year}</td><td>${money(d.price)}</td><td>${d.mileage.toLocaleString('pt-BR')}</td><td>${d.pay}</td><td>${d.city}</td><td>${d.state}</td><td>${d.country}</td><td>${d.seller}</td><td>${d.status}</td></tr>`).join('')||'<tr><td colspan="13">Nenhum registro encontrado.</td></tr>';const footer=document.getElementById('footerInfo');if(footer){
+  const baseTotal=salesRows.reduce((s,d)=>s+d.price,0);
+  const totalOk=salesRows.length===EXPECTED_TOTAL_ROWS && Math.abs(baseTotal-EXPECTED_TOTAL_REVENUE)<0.01;
+  footer.textContent=`${totalOk?'Validação OK:':'Atenção:'} ${salesRows.length} vendas carregadas | Receita total: ${money(baseTotal)} | Esperado: ${EXPECTED_TOTAL_ROWS} vendas e ${money(EXPECTED_TOTAL_REVENUE)} | Tabela, filtros, KPIs, gráficos e rankings calculados pela mesma base.`;
+  const insightsBox=document.getElementById('insights');
+  if(insightsBox){
+    const topModel=groupModels(r)[0];
+    const topCity=sumBy(r,'city')[0];
+    const topPay=sumBy(r,'pay')[0];
+    const topYear=sumBy(r,'year','price')[0];
+    insightsBox.innerHTML=(r.length?[
+      `O faturamento filtrado é ${money(rev)}, com ${sales} vendas na seleção atual.`,
+      `O modelo mais vendido é ${topModel?.model||'-'}, com ${topModel?.sales||0} venda(s).`,
+      `A cidade com maior volume é ${topCity?.[0]||'-'}, com ${topCity?.[1]||0} venda(s).`,
+      `A forma de pagamento mais usada é ${topPay?.[0]||'-'}, com ${topPay?.[1]||0} ocorrência(s).`,
+      `O ano com maior faturamento é ${topYear?.[0]||'-'}, somando ${money(topYear?.[1]||0)}.`
+    ]:['Não há dados para a combinação selecionada.']).map(x=>`<div class="insight">${x}</div>`).join('');
+  }
+}}
+fill();
+preloadCarImages();
+modelFilter.onchange=()=>{activeModel=modelFilter.value;update()};
+countryFilter.onchange=()=>{country=countryFilter.value;update()};
+payFilter.onchange=()=>{pay=payFilter.value;update()};
+yearFilter.onchange=()=>{year=yearFilter.value;update()};
+let resizeTimer;
+window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(update,180)});
+update();
+</script>
+</body>
+</html>
