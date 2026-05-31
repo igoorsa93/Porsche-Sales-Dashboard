@@ -134,7 +134,7 @@ porsche-sales-dashboard/
     └── preview-dashboard.png
 ---
 
-## 🚀 Aprendizados
+    🚀 Aprendizados
 
 Durante o desenvolvimento, pratiquei:
 
@@ -148,16 +148,15 @@ Durante o desenvolvimento, pratiquei:
 
 ---
 
-## 👨‍💻 Autor
+    👨‍💻 Autor
 
-**Igor Cardoso**
+   Igor Cardoso 
 Graduando em Sistemas de Informação
 Análise de Dados | Business Intelligence | Excel | Power BI | SQL | Python
 
 ---
 
-## ⭐ Observação
+    ⭐ Observação
 
 Projeto desenvolvido para fins de estudo e portfólio, utilizando uma base de dados fictícia/simulada para prática de análise de dados e construção de dashboard.
 
-</div>
