@@ -1,10 +1,26 @@
 <div align="center">
 
-# 🚗 Porsche Sales Dashboard
+<h1>
+  <img src="https://cdn-icons-png.flaticon.com/512/5969/5969219.png" width="28" />
+  Porsche Sales Dashboard
+</h1>
 
-### Análise de Vendas com Visual Inspirado na Porsche
+<p>
+  <strong>Dashboard interativo de vendas com análise de dados, visual premium e identidade inspirada na Porsche.</strong>
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-%20Concluído-%20?style=for-the-badge" />
+</p>
 
-Projeto desenvolvido para transformar dados de vendas em uma experiência visual moderna, intuitiva e interativa, combinando análise de dados, design e tecnologia.
+<p align="center">
+  <img src="https://img.shields.io/badge/Excel %20 Tratamento, limpeza e preparação da base%20-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white" />
+  <img src="https://img.shields.io/badge/HTML Estrutura do dashboard-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS Estilização e layout visual-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript Interatividade e filtros -F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/ChatGPT Interfacee Análise-00A67E?style=for-the-badge&logo=openai&logoColor=white" />
+  <img src="https://img.shields.io/badge/%20Claude%20Code Manipulação%20de%20Dados-D97757?style=for-the-badge&logo=anthropic&logoColor=white" />
+
+</p>
 
 <img width="1536" height="1024" alt="Porsche Dashboard" src="https://github.com/user-attachments/assets/0a4716a6-7316-4d97-9c17-2706ee69f307" />
 
@@ -12,94 +28,108 @@ Projeto desenvolvido para transformar dados de vendas em uma experiência visual
 
 ---
 
-## 📖 Sobre o Projeto
+## ✨ Visão Geral
 
-Este projeto nasceu com o objetivo de transformar uma base de vendas em um dashboard visual, organizado e fácil de analisar.
+O **Porsche Sales Dashboard** é um projeto de análise de dados criado para transformar uma base fictícia de vendas em um dashboard visual, moderno e interativo.
 
-A proposta foi unir **Análise de Dados**, **Business Intelligence** e **Visualização de Informações** em uma interface inspirada no padrão visual premium da Porsche.
+A ideia foi construir uma experiência diferente de um relatório comum: algo mais elegante, com aparência premium e inspirado no universo da Porsche.
 
-Utilizando uma base fictícia de vendas, foi possível criar uma solução que permite acompanhar o desempenho dos modelos, analisar faturamento, ticket médio, cidades com maior volume de vendas e formas de pagamento mais utilizadas.
-
----
-
-## 🎯 Objetivos
-
-O dashboard foi criado para responder perguntas como:
-
-* Quais modelos tiveram melhor desempenho de vendas?
-* Quais cidades concentraram maior volume comercial?
-* Como o faturamento evoluiu ao longo do tempo?
-* Qual foi o ticket médio das vendas?
-* Quais formas de pagamento foram mais utilizadas?
-* Como cada modelo contribuiu para o resultado geral?
+O projeto reúne tratamento de dados, análise exploratória, criação de indicadores, desenvolvimento front-end e storytelling com dados.
 
 ---
 
-## 📊 Recursos do Dashboard
+## 🎯 Objetivo do Projeto
 
-✅ Indicadores de desempenho
+O objetivo principal foi criar uma visualização capaz de responder, de forma rápida e clara:
 
-✅ Ranking dos modelos mais vendidos
-
-✅ Ranking das cidades com maior volume de vendas
-
-✅ Evolução do faturamento ao longo dos anos
-
-✅ Distribuição das formas de pagamento
-
-✅ Receita por modelo
-
-✅ Filtros dinâmicos para análise detalhada
-
-✅ Interface moderna inspirada na Porsche
+* quais modelos venderam mais;
+* quais cidades tiveram melhor desempenho;
+* qual foi o faturamento total;
+* qual foi o ticket médio;
+* quais formas de pagamento foram mais utilizadas;
+* como o faturamento evoluiu ao longo do tempo.
 
 ---
 
-## 🛠️ Tecnologias e Ferramentas Utilizadas
+## 🧠 Conceito do Dashboard
+
+O conceito visual foi inspirado no site oficial da Porsche, trazendo uma estética mais escura, elegante e sofisticada.
+
+A proposta foi fugir do visual tradicional de planilha e criar um dashboard com aparência de aplicação real, voltado para análise comercial e apresentação de portfólio.
+
+---
+
+## 🎨 Paleta de Cores
+
+| Cor           | Uso no Dashboard                           |
+| ------------- | ------------------------------------------ |
+| Preto Premium | Fundo principal e sensação de sofisticação |
+| Branco        | Textos, títulos e contraste                |
+| Cinza Grafite | Cards, divisões e áreas secundárias        |
+| Dourado       | Destaques, KPIs e elementos premium        |
+
+Essas cores foram escolhidas para transmitir elegância, performance e exclusividade.
+
+---
+
+## 🖼️ Base e Imagens Utilizadas
+
+A base de dados utilizada é fictícia/simulada e foi criada para fins de estudo, análise e construção de portfólio.
+
+As imagens dos modelos Porsche foram utilizadas como referência visual a partir do site oficial da marca:
+
+```text
+https://www.porsche.com/brazil/pt/models/
+```
+
+---
+
+## 📊 Indicadores do Dashboard
+
+| Indicador          | Descrição                              |
+| ------------------ | -------------------------------------- |
+| Faturamento Total  | Receita total gerada pelas vendas      |
+| Ticket Médio       | Valor médio por venda                  |
+| Total de Vendas    | Quantidade de registros analisados     |
+| Ranking de Modelos | Modelos com melhor desempenho          |
+| Ranking de Cidades | Cidades com maior volume de vendas     |
+| Receita por Modelo | Faturamento individual por veículo     |
+| Evolução Anual     | Comparação do faturamento por ano      |
+| Forma de Pagamento | Distribuição dos pagamentos realizados |
+
+---
+
+## 🛠️ Tecnologias e Ferramentas
 
 | Ferramenta  | Aplicação                                            |
 | ----------- | ---------------------------------------------------- |
-| Excel       | Tratamento e preparação dos dados                    |
+| Excel       | Tratamento e preparação da base                      |
 | Claude Code | Apoio na manipulação e organização dos dados         |
 | ChatGPT     | Desenvolvimento da interface, análise e documentação |
 | HTML5       | Estrutura do dashboard                               |
-| CSS3        | Estilização e layout                                 |
-| JavaScript  | Interatividade                                       |
-| Canvas API  | Componentes gráficos                                 |
+| CSS3        | Layout e identidade visual                           |
+| JavaScript  | Filtros, interatividade e lógica                     |
+| Canvas API  | Elementos gráficos do dashboard                      |
 
 ---
 
-## 📈 Processo de Desenvolvimento
+## ⚙️ Processo de Desenvolvimento
 
 ### 1. Tratamento dos Dados
 
-Antes da criação do dashboard, a base passou por um processo de:
-
-* Limpeza dos dados
-* Padronização das informações
-* Organização da estrutura da base
-* Ajuste de inconsistências
-* Preparação para análise
+A base foi organizada no Excel, passando por limpeza, padronização e ajustes necessários para análise.
 
 ### 2. Análise Exploratória
 
-Com a base tratada, foram analisados pontos importantes como:
+Foram avaliados padrões de vendas, modelos com melhor desempenho, cidades com maior volume comercial e comportamento do faturamento.
 
-* Tendências de vendas
-* Modelos com melhor desempenho
-* Distribuição geográfica das vendas
-* Comportamento do faturamento
-* Formas de pagamento mais utilizadas
+### 3. Construção Visual
 
-### 3. Desenvolvimento do Dashboard
-
-Após a preparação da base, a interface foi desenvolvida com apoio do ChatGPT, utilizando HTML, CSS, JavaScript e Canvas API.
-
-O foco foi criar uma experiência visual moderna, interativa e inspirada no padrão premium da Porsche, facilitando a leitura dos dados e a navegação pelo dashboard.
+A interface foi desenvolvida com apoio do ChatGPT, utilizando HTML, CSS, JavaScript e Canvas API, buscando uma navegação moderna, visual elegante e filtros dinâmicos.
 
 ---
 
-## 📸 Prévia do Projeto
+## 📸 Preview do Projeto
 
 ### Tela Principal
 
@@ -111,22 +141,7 @@ O foco foi criar uma experiência visual moderna, interativa e inspirada no padr
 
 ---
 
-## 🚀 Principais Aprendizados
-
-Durante o desenvolvimento deste projeto, pratiquei conceitos de:
-
-* Análise de Dados
-* Business Intelligence
-* Análise Exploratória de Dados
-* Visualização de Dados
-* Storytelling com Dados
-* Desenvolvimento Front-End
-* UX/UI para Dashboards
-* Tratamento e organização de bases
-
----
-
-## 📂 Estrutura do Projeto
+## 📁 Estrutura do Repositório
 
 ```text
 porsche-sales-dashboard/
@@ -144,22 +159,33 @@ porsche-sales-dashboard/
 
 ---
 
-## 👨‍💻 Autor
+## 🚀 Aprendizados
 
-### Igor Cardoso
+Com este projeto, pratiquei:
 
-Graduando em Sistemas de Informação e em transição para a área de Dados, com foco em Análise de Dados, Business Intelligence, Power BI, SQL e Python.
-
-🔗 **LinkedIn**
-https://www.linkedin.com/in/igorsa93/
-
-🔗 **GitHub**
-https://github.com/igoorsa93
+* limpeza e tratamento de dados;
+* análise exploratória;
+* criação de indicadores;
+* visualização de dados;
+* storytelling com dados;
+* desenvolvimento front-end;
+* UX/UI aplicado a dashboards.
 
 ---
 
-## ⭐ Considerações Finais
+## 👨‍💻 Autor
 
-Este projeto representa a aplicação prática de conceitos de Análise de Dados, Business Intelligence e Desenvolvimento de Dashboards.
+**Igor Cardoso**
+Graduando em Sistemas de Informação, em transição para a área de Dados.
 
-A ideia foi mostrar como uma base de dados pode ser transformada em uma solução visual clara, organizada e útil para apoiar a tomada de decisão.
+**Áreas de interesse:**
+Análise de Dados • Business Intelligence • Power BI • SQL • Python
+
+🔗 **LinkedIn:** https://www.linkedin.com/in/igorsa93/
+🔗 **GitHub:** https://github.com/igoorsa93
+
+---
+
+## ⭐ Observação
+
+Projeto desenvolvido para fins de estudo e portfólio, utilizando uma base fictícia/simulada e referências visuais da Porsche apenas como inspiração.
